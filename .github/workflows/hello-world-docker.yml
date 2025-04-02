@@ -15,7 +15,7 @@ jobs:
   
       - name: Run my container action
         id: hello-action
-        uses: ./docker-actions
+        uses: ./.github/docker-actions
         with: 
           who-to-greet: '@esamonte'
 
