@@ -3,7 +3,7 @@ name: GitHub Actions EPROD Training Demo
 on:
   push:
     branches: [ main] 
-    paths-ignore: [.gitbub/**]
+    paths-ignore: [.github/**]
   pull_request: 
     branches: [ main ]
   schedule:
