@@ -10,14 +10,14 @@ jobs:
   test-action:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+  
+      - name: Run my container action
+        id: hello-action
+        uses: ./docker-actions
+        with: 
+          who-to-greet: '@esamonte'
 
-    - name: Run my container action
-      id: hello-action
-      uses: ./docker-actions
-      with: 
-        who-to-greet: '@esamonte'
-
-    - name: Get the output time in container
-      run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello!"
+      - name: Get the output time in container
+        run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello!"
