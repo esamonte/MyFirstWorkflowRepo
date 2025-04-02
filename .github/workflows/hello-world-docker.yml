@@ -3,7 +3,7 @@ name: CI Process for docker
 on: 
   push:
     branches: [ main ]
-    paths: [ docker-action ]
+    paths: [ docker-actions ]
   workflow_dispatch:
 
 jobs:
