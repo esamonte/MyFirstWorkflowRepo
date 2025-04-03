@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   call-workflow:
-    uses: ./.github/workflows/reusable.yml
+    uses: ./.github/workflows/reusable.yml #tp reference another repo it's like [owner]/[repo]/[path]/[workflow.yml]@[branch]
     with:
       who-to-greet: '@esamonte'
   use-output:
