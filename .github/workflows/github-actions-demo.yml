@@ -29,7 +29,7 @@ jobs:
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
 
-  Test: #runs in parallel after Build has completed
+  Test: # always runs in parallel after Build has completed
     runs-on: ubuntu-22.04
     if: github.event_name == 'workflow_dispatch'
     needs: Build
@@ -37,7 +37,7 @@ jobs:
     steps:
       - run: echo "🧪 Testing..."
 
-  Load-Test: #runs in parallel after Build has completed
+  Load-Test: #Only runs in parallel after Build has completed if environment is Load-Test
     runs-on: ubuntu-latest
     if: github.event.inputs.environment == 'Load-Test'
     needs: Build
