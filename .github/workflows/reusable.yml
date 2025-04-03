@@ -17,7 +17,7 @@ jobs:
   reusable-job:
     runs-on: ubuntu-22.04
     outputs:
-      current-time: ${{ steps.time.outputs.current-time }} #current-time here is dynamically generated
+      current-time: ${{ steps.outputs.time }} 
     steps:
       - name: Greet Someone
         run: echo "hello ${{ inputs.who-to-greet }}"  # recall spaces are best practice after backets
