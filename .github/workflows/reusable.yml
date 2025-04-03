@@ -1,0 +1,29 @@
+name: Reusable Workflow
+
+on:
+  workflow_call: # this specifies this workflow will be called from somewhere else
+    inputs:
+      who-to-greet:
+        description: 'Who are we greeting?'
+        type: string
+        required: true
+        default: World
+    outputs:
+      current-time:
+        description: 'The time the person was greeted.'
+        value: ${{ jobs.reusable-job.outputs.current-time }} # this is the actual output from this path (..current-time)
+
+jobs:
+  reusable-job:
+    runs-on: ubuntu-22.04
+    outputs:
+      current-time: ${{ steps.time.outputs.current-time }} #current-time here is dynamically generated
+    steps:
+      - name: Greet Someone
+        run: echo "hello ${{ inputs.who-to-greet }}"  # recall spaces are best practice after backets
+      - name: Set current time
+        id: time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT"
+        
+        
+      
