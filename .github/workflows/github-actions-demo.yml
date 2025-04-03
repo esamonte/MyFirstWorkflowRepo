@@ -39,7 +39,7 @@ jobs:
 
   Load-Test: #runs in parallel after Build has completed
     runs-on: ubuntu-latest
-    if: github.event_name == 'Load-Test'
+    if: github.event.inputs.environment == 'Load-Test'
     needs: Build
     environment: Load-Test
     steps:
